@@ -44,7 +44,7 @@ def classify_email(subject, snippet):
         f"Subject: {subject}\nBody: {snippet}\n\n"
         "Respond with only one word: Work, School, or Personal."
     )
-    
+
     try:
         response = client.chat.completions.create(
             model="gpt-4o-mini",
@@ -55,7 +55,7 @@ def classify_email(subject, snippet):
         return category
     
     except Exception as e:
-        print(f"⚠️  OpenAI API error: {e}")
+        print(f"OpenAI API error: {e}")
         return "Unclassified"
 
 def get_or_create_label(service, label_name):
@@ -108,9 +108,9 @@ def main():
         if category in label_ids:
             apply_label(service, msg["id"], label_ids[category])
             counts[category] += 1
-            print(f"✉️  {subject[:60]}... → {category}")
+            print(f"{subject[:60]}... → {category}")
         else:
-            print(f"⚠️  Could not classify: {subject}")
+            print(f"Could not classify: {subject}")
 
     print("\nSummary:")
     for k, v in counts.items():
