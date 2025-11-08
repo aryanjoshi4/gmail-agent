@@ -1,0 +1,13 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# API credentials
+credentials.json
+credentials.json.json
+token_*.json
+.env
+
+# Virtual envs
+venv/
+.env/
